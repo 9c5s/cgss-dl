@@ -1,0 +1,29 @@
+{
+	"name": "cgss-dl",
+	"module": "index.ts",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"format": "biome format --write .",
+		"lint": "biome lint --error-on-warnings --write .",
+		"check": "biome check --error-on-warnings --write .",
+		"test": "vitest",
+		"test:ui": "vitest --ui",
+		"test:run": "vitest run",
+		"start": "bun run src/index.ts",
+		"postinstall": "lefthook install"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.2.2",
+		"@types/bun": "latest",
+		"@vitest/ui": "^3.2.4",
+		"lefthook": "^1.12.3",
+		"vitest": "^3.2.4"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"mishiro-core": "^6.3.7"
+	}
+}

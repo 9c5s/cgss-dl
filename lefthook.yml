@@ -1,0 +1,19 @@
+pre-commit:
+  piped: true
+  jobs:
+    - name: lefthook validate
+      glob: lefthook.yml
+      run: bunx lefthook validate
+
+    - name: format and lint
+      run: bunx biome check --write --error-on-warnings --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+
+pre-push:
+  piped: true
+  jobs:
+    - name: lint
+      run: bun run lint
+
+    - name: test
+      run: bun run test:run
