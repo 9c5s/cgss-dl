@@ -6,19 +6,20 @@
 	"scripts": {
 		"format": "biome format --write .",
 		"lint": "biome lint --error-on-warnings --write .",
-		"typecheck": "bunx tsc --locale ja --noEmit",
-		"check": "biome check --error-on-warnings --write . && bun run typecheck",
+		"typecheck": "npx tsc --locale ja --noEmit",
+		"check": "biome check --error-on-warnings --write . && npm run typecheck",
 		"test": "vitest",
 		"test:ui": "vitest --ui",
 		"test:run": "vitest run",
-		"start": "bun run src/index.ts",
+		"start": "npx tsx src/index.ts",
 		"postinstall": "lefthook install"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.2",
-		"@types/bun": "latest",
+		"@types/node": "^20.0.0",
 		"@vitest/ui": "^3.2.4",
 		"lefthook": "^1.12.3",
+		"tsx": "^4.7.0",
 		"vitest": "^3.2.4"
 	},
 	"peerDependencies": {
