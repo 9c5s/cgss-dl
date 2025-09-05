@@ -9,11 +9,17 @@ pre-commit:
       run: bunx biome check --write --error-on-warnings --no-errors-on-unmatched {staged_files}
       stage_fixed: true
 
+    - name: type check
+      run: bun run typecheck
+
 pre-push:
   piped: true
   jobs:
     - name: lint
       run: bun run lint
+
+    - name: type check
+      run: bun run typecheck
 
     - name: test
       run: bun run test:run
